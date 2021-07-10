@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="filterset-books" basedir="." default="copy">
+	<property file="build.properties"/>
+	<target name="clean">
+		<delete>
+			<fileset dir="printing">
+				<include name="**/*.txt"/>
+			</fileset>
+		</delete>
+	</target>
+	<target name="copy" depends="clean">
+		<copy todir="printing">
+			<fileset dir="books">
+				<include name="**/*.txt"/>				
+			</fileset>
+			<filterset begintoken="#{" endtoken="}">
+				<filter token="publisheddate" value="${publisheddate}"/>
+				<filter token="publisher" value="${publisher}"/>
+				<filter token="place" value="${place}"/>
+			</filterset>
+		</copy>
+	</target>
+</project>

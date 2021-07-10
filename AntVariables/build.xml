@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<project name="antvariables" basedir="." default="print">
+	<target name="print">
+		<echo>Ant Version: ${ant.version}</echo>
+		<echo>java Version: ${ant.java.version}</echo>
+		<echo>project name : ${ant.project.name}</echo>
+		<echo>Default target : ${ant.project.default-target}</echo>
+		<echo>Ant Home : ${ant.home}</echo>
+		<echo>Ant Library Dir : ${ant.library.dir}</echo>
+		<echo>Build File Name : ${ant.file}</echo>
+		<echo>Base Dir : ${basedir}</echo>
+	</target>
+</project>

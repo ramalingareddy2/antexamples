@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<project name="fileset-example" basedir="." default="copyimages">
+	
+	<target name="clean">
+		<delete>
+			<fileset dir="published_images">
+				<include name="**/*.jpg"/>
+				<include name="**/*.png"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="copyimages" depends="clean">
+		<copy todir="published_images">
+			<fileset dir="images">
+				<include name="**/*.jpg"/>
+				<include name="**/*.JPG"/>
+				<include name="**/*.png"/>
+			</fileset>
+		</copy>
+	</target>
+	
+</project>

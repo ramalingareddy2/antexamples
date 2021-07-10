@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="patternset-example" basedir="." default="copyfiles">
+	<patternset id="auditpattern">
+		<include name="**/*.audit"/>
+		<include name="**/*.ledger"/>
+	</patternset>
+	
+	<target name="clean">
+		<delete>
+			<fileset dir="audit">
+				<patternset refid="auditpattern"></patternset>
+			</fileset>
+		</delete>
+	</target>
+	<target name="copyfiles" depends="clean">
+		<copy todir="audit">
+			<fileset dir="dmart">
+				<patternset refid="auditpattern"/>
+			</fileset>
+			<fileset dir="wallmart">
+				<patternset refid="auditpattern"/>
+			</fileset>
+			<fileset dir="spencers">
+				<patternset refid="auditpattern"/>
+			</fileset>
+		</copy>
+	</target>
+</project>
